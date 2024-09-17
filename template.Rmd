@@ -32,6 +32,55 @@ pups_df=janitor::clean_names(pups_df)
 
 pups_df
 ```
+use absolute path
+
+```{r}
+pups_df=read_csv("/Users/Apple/Desktop/2024Fall/Data 1/Class R/2/9-17-class/data_import_examples/FAS_litters.csv")
+
+pups_df
+```
+
+```{r}
+litters_df
+
+tail(litters_df, 5)
+```
+
+
+missing data
+```{r}
+litters_df = 
+    read_csv(file = "data_import_examples/FAS_litters.csv",
+        na = c(".", "NA", "")
+    )
+litters_df=janitor::clean_names(litters_df)
+
+pull(litters_df,gd0_weight)
+
+```
+
+what if we code 'group' as a factor variable?
+
+```{r}
+litters_df = 
+    read_csv(file = "data_import_examples/FAS_litters.csv",
+        na = c(".", "NA", ""),
+    col_types = cols(
+      Group = col_factor()
+    )
+)
+
+head(litters_df)
+
+```
+
+
+
+
+
+
+
+
 
 
 
